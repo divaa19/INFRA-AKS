@@ -23,13 +23,13 @@ stages:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: '<your-resource-manager-connection>'
-        subscriptionId: ''
+        azureResourceManagerConnection: ${{ variables.armconnection }}
+        subscriptionId: ${{ variables.subid }}
         action: 'Create Or Update Resource Group'
-        resourceGroupName: ''
+        resourceGroupName: ${{ variables.resourcegrp }}
         location: 'Central US'
         templateLocation: 'Linked artifact'
-        csmFile: '$(Pipeline.Workspace)/s/template.json'
-        csmParametersFile: '$(Pipeline.Workspace)/s/parametersFile.json'
+        csmFile: '$(Build.ArtifactStagingDirectory)/s/deployment/template.json'
+        csmParametersFile: '$(Build.ArtifactStagingDirectory)/s/deployment/parametersFile.json'
         deploymentMode: 'Incremental'
         
