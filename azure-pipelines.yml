@@ -1,0 +1,35 @@
+
+
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+  - master
+
+variables:
+  - template: parameters.yml
+
+stages:
+- stage: Build AKS
+  displayName: Build AKS
+  jobs:
+  - job: Build AKS
+    displayName: Build AKS
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    - task: AzureResourceManagerTemplateDeployment@3
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: '<your-resource-manager-connection>'
+        subscriptionId: ''
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: ''
+        location: 'Central US'
+        templateLocation: 'Linked artifact'
+        csmFile: '$(Pipeline.Workspace)/s/deployment/template.json'
+        csmParametersFile: '$(Pipeline.Workspace)/s/deployment/parametersFile.json'
+        deploymentMode: 'Incremental'
+        
