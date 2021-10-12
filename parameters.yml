@@ -1,4 +1,4 @@
 variables:
-rmconnection: 'TEST-ARM'
-subscription: '6c497b75-03a5-482a-91d7-1dd191b2d79e'
-resourceGroup: 'TEST-RG'
+  rmconnection: 'TEST-ARM'
+  subscription: '6c497b75-03a5-482a-91d7-1dd191b2d79e'
+  resourceGroup: 'TEST-RG'
