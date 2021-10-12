@@ -18,10 +18,10 @@ stages:
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
-        azureResourceManagerConnection: ${{ variables.azureResourceManagerConnection }}
-        subscriptionId: ${{ variables.subscriptionId }}
+        azureResourceManagerConnection: ${{ variables.rmconnection }}
+        subscriptionId: ${{ variables.subscription }}
         action: 'Create Or Update Resource Group'
-        resourceGroupName: ${{ variables.resourceGroupName }}
+        resourceGroupName: ${{ variables.resourceGroup }}
         location: 'Central US'
         templateLocation: 'Linked artifact'
         csmFile: '$(Pipeline.Workspace)/s/template.json'
