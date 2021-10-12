@@ -15,6 +15,12 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
+
+    - task: CopyFiles@2
+        inputs:
+          sourceFolder: 'deployment/'
+          TargetFolder: '$(Pipeline.Workspace)'
+
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
         deploymentScope: 'Resource Group'
