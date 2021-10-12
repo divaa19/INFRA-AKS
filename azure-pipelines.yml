@@ -1,7 +1,7 @@
 # Infrastructre deployement -AKS Cluster
 
 trigger:
-  - master
+  - main
 
 variables:
   - template: parameters.yml
