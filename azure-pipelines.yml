@@ -17,9 +17,9 @@ stages:
     steps:
 
     - task: CopyFiles@2
-        inputs:
-          sourceFolder: 'deployment/'
-          TargetFolder: '$(Pipeline.Workspace)'
+      inputs:
+        sourceFolder: 'deployment/'
+        TargetFolder: '$(Pipeline.Workspace)'
 
     - task: AzureResourceManagerTemplateDeployment@3
       inputs:
