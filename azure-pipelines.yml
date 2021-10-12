@@ -7,11 +7,11 @@ variables:
   - template: parameters.yml
 
 stages:
-- stage: Build AKS
-  displayName: Build AKS
+- stage: Build 
+  displayName: Build 
   jobs:
-  - job: Build AKS
-    displayName: Build AKS
+  - job: Build 
+    displayName: Build 
     pool:
       vmImage: ubuntu-latest
     steps:
