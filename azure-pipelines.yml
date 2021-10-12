@@ -1,4 +1,4 @@
-# Infrastructre deployement -AKS Cluster
+# Infrastructre deployement -AKS Cluster deploy
 
 trigger:
   - main
